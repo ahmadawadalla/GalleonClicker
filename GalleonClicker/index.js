@@ -151,8 +151,8 @@ function resetVerified(){
 // Updates the numbers in the game
 function update(){
     document.getElementById('tabTitle').innerHTML = `${Math.floor(game.galleon).toLocaleString()} Galleon Clicker`
-    document.getElementById('displayGalleonNumber').innerHTML = `${Math.floor(game.galleon).toLocaleString()} Galleon`
-    document.getElementById('galleonPerSecond').innerHTML = `${game.galleonPS.toFixed(1).toLocaleString()} PER SECOND`
+    document.getElementById('displayGalleonNumber').innerHTML = `${Math.floor(game.galleon).toLocaleString()} Galleons`
+    document.getElementById('galleonPerSecond').innerHTML = `${game.galleonPS.toLocaleString()} PER SECOND`
     updateTime()
 
     let gameStatsBar = document.getElementById('gameStatsBar')
@@ -261,6 +261,13 @@ function wizardStatsUpdate(idName){
     let wizardName = idName.id
     let level = game[wizardName + 'Level']
     let GPS = game[wizardName + 'GPS']
+    let GPSPercent = ((GPS * level) * 100 / game.galleonPS).toFixed(1)
+
+    wizardName = wizardName[0].toUpperCase() + wizardName.substring(1)
+
+    if (GPSPercent * 10 % 10 === 0){
+        GPSPercent -= '.0'
+    }
 
     let wizardStatsLevel = document.getElementById('wizardStatsLevel')
     let wizardStatsGPSPer = document.getElementById('wizardStatsGPSPer')
@@ -269,7 +276,7 @@ function wizardStatsUpdate(idName){
     wizardStatsLevel.innerHTML = `owned: ${level}`
     wizardStatsGPSPer.innerHTML = `\neach ${wizardName} produces ${GPS.toLocaleString()} per second\n`
     if(level > 0)
-        wizardStatsGPSTotal.innerHTML = `${level} ${wizardName} produces ${(GPS * level).toLocaleString()} per second (${Math.round((GPS * level) * 100 / game.galleonPS, 2)}% of total GPS)\n`
+        wizardStatsGPSTotal.innerHTML = `${level} ${wizardName} produces ${(GPS * level).toLocaleString()} per second (${GPSPercent}% of total GPS)\n`
     else
         wizardStatsGPSTotal.innerHTML = `${wizardName} is currently not producing any per second\n`
 }
