@@ -215,13 +215,15 @@ function updateWizards(){
 
 // Adds currency every time the galleon is clicked
 function galleonClicked(){
-    let sound = new Audio('Sounds/mouseClick.mp3')
-    sound.volume = .1
-    sound.play()
     game.galleon += game.clickRate
     gameStats.totalGalleonsClicked += game.clickRate
     gameStats.totalGalleonsEarned += game.clickRate
     update()
+
+    let sound = new Audio('Sounds/mouseClick.mp3')
+    sound.volume = 0.05
+    sound.pause()
+    sound.play()
 }
 
 // Wizard functions when bought
