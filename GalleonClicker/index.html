@@ -68,7 +68,7 @@
         z-index: 1;
     }
 
-    .numberOfGalleon{
+    #numberOfGalleon{
         background-color: rgba(204, 112, 215, 0.19);
         color: ghostwhite;
         text-align: center;
@@ -78,6 +78,7 @@
         padding: 1px 30px 10px 20px;
         margin-left: -11px;
         margin-top: 95px;
+        position: relative;
     }
     #Galleon{
         color: ghostwhite;
@@ -212,7 +213,7 @@
         font-size: 25px;
         color: white;
         background-color: black;
-        opacity: 95%;
+        opacity: 90%;
         width: fit-content;
         text-align: center;
         left: 70px;
@@ -248,7 +249,7 @@
         font-size: 25px;
         color: white;
         background-color: black;
-        opacity: 95%;
+        opacity: 90%;
         width: fit-content;
         text-align: center;
         left: 70px;
@@ -277,13 +278,15 @@
 <body>
     <div id="leftDiv">
         <h1 id="pageTitle">Galleon Clicker</h1>
-        <div class="numberOfGalleon">
+        <div id="numberOfGalleon">
             <p id="displayGalleonNumber"></p>
         </div>
-        <div id="Galleon">
+        <div id="Galleon" style="z-index: 1">
             <p id="galleonPerSecond"></p>
             <img draggable="false" onclick="galleonClicked()" src="Pictures/Galleon.png" width="225px" height="225px">
         </div>
+        <div style="background-image: url('Pictures/GringotsBG.png'); height: 700px; opacity: 55%;"></div>
+
     </div>
 
     <div id="middleDiv">
