@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title id="tabTitle">Galleon Clicker</title>
+</head>
+<style>
+    body{
+        background-color: #353131;
+        position:fixed;
+    }
+    h1{
+        background-color: rgba(204, 112, 215, 0.19);
+        font-size: 26px;
+        margin-top: 100px;
+        padding: 2px 95px;
+        left: 70px;
+        top: -50px;
+        color: white;
+        position: fixed;
+    }
+
+    #leftDiv{
+        left: 0;
+        position: fixed;
+    }
+
+    #middleDiv{
+        background-color: #353131;
+        border: solid 4px rgba(150, 139, 77, 0.85);
+        position: fixed;
+        margin-left: 500px;
+    }
+
+    #rightDiv{
+        margin-top: 10px;
+        right: 0;
+        cursor: pointer;
+        color: black;
+        position: fixed;
+    }
+
+    #options{
+        background-color: rgba(76, 59, 134, 0.75);
+        padding: 10px;
+        border-bottom: solid 4px rgba(150, 139, 77, 0.85);
+
+    }
+    #saveButton{
+        text-align: center;
+        border-radius: 10px;
+        padding: 20px 40px;
+        font-size: 18px;
+        z-index: 1;
+    }
+    #resetButton{
+        text-align: center;
+        border-radius: 10px;
+        padding: 20px 40px;
+        font-size: 18px;
+        float: right;
+        z-index: 1;
+    }
+    #gameStats{
+        text-align: center;
+        border-radius: 10px;
+        padding: 20px 40px;
+        font-size: 18px;
+        z-index: 1;
+    }
+
+    .numberOfGalleon{
+        background-color: rgba(204, 112, 215, 0.19);
+        color: ghostwhite;
+        text-align: center;
+        font-size: 24px;
+        height: 60px;
+        width: 470px;
+        padding: 1px 30px 10px 20px;
+        margin-left: -11px;
+        margin-top: 95px;
+    }
+    #Galleon{
+        color: ghostwhite;
+        text-align: center;
+        font-size: 18px;
+        top: 200px;
+        left: 130px;
+        cursor: pointer;
+        position: fixed;
+    }
+
+    /*Store Items*/
+
+    #StoreWizards{
+        overflow-y: auto;
+        float: right;
+    }
+    #StoreTitle{
+        color: White;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    /*Wizards*/
+    #muggle{
+        background-color: white;
+        border: solid white;
+        height: 100px;
+    }
+    #goblin,
+    #dobby,
+    #hagrid,
+    #trelawney,
+    #lupin,
+    #mcGonagall,
+    #snape,
+    #ron,
+    #hermione,
+    #dumbledore,
+    #harry,
+    #voldemort
+    {
+        background-color: white;
+        border: solid white;
+        height: 100px;
+        margin-top: 30px;
+    }
+
+    /*Levels*/
+    #muggleLevel,
+    #goblinLevel,
+    #dobbyLevel,
+    #hagridLevel,
+    #trelawneyLevel,
+    #lupinLevel,
+    #mcGonagallLevel,
+    #snapeLevel,
+    #ronLevel,
+    #hermioneLevel,
+    #dumbledoreLevel,
+    #harryLevel,
+    #voldemortLevel
+    {
+        font-size: 28px;
+        display: block;
+        margin-top: 35px;
+        margin-left: 160px;
+    }
+
+    /*Costs*/
+    #muggleCost,
+    #goblinCost,
+    #dobbyCost,
+    #hagridCost,
+    #trelawneyCost,
+    #lupinCost,
+    #mcGonagallCost,
+    #snapeCost,
+    #ronCost,
+    #hermioneCost,
+    #dumbledoreCost,
+    #harryCost,
+    #voldemortCost
+    {
+        margin-top: -30px;
+        margin-left: 220px;
+        margin-right: 15px;
+    }
+
+    /*Hover*/
+    #muggle:hover,
+    #goblin:hover,
+    #dobby:hover,
+    #hagrid:hover,
+    #trelawney:hover,
+    #lupin:hover,
+    #mcGonagall:hover,
+    #snape:hover,
+    #ron:hover,
+    #hermione:hover,
+    #dumbledore:hover,
+    #harry:hover,
+    #voldemort:hover
+    {
+        background-color: tan;
+        color: white;
+    }
+
+    #wizardStats{
+        border: 2px solid rgba(128, 128, 128, 0.75);
+        font-size: 16px;
+        color: white;
+        background-color: black;
+        opacity: 92%;
+        width: 375px;
+        text-align: left;
+        padding-right: 15px;
+        position: absolute;
+        display: none;
+    }
+
+    button:hover{
+        background-color: tan;
+        color: white;
+        cursor: pointer;
+    }
+
+    /*Hidden Divs*/
+    #saveVerified{
+        border: 3px solid rgba(128, 128, 128, 0.75);
+        font-size: 25px;
+        color: white;
+        background-color: black;
+        opacity: 95%;
+        width: fit-content;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin-top: -80px;
+        margin-inline: auto;
+        padding: 45px 55px;
+        position: fixed;
+        display: none;
+    }
+    #verifyReset{
+        border: 3px solid rgba(128, 128, 128, 0.75);
+        font-size: 25px;
+        color: white;
+        background-color: black;
+        width: fit-content;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin-top: -80px;
+        margin-inline: auto;
+        padding: 40px 55px;
+        position: fixed;
+        display: none;
+    }
+    #verifyReset button{
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 18px;
+    }
+    #resetVerified{
+        border: 3px solid rgba(128, 128, 128, 0.75);
+        font-size: 25px;
+        color: white;
+        background-color: black;
+        opacity: 95%;
+        width: fit-content;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin-top: -80px;
+        margin-inline: auto;
+        padding: 45px 55px;
+        position: fixed;
+        display: none;
+    }
+    #gameStatsBar{
+        border: 3px solid rgba(150, 139, 77, 0.85);
+        font-size: 25px;
+        color: white;
+        background-color: #353131;
+        text-align: center;
+        margin-top: 10px;
+        padding: 45px 55px;
+        left: 509px;
+        z-index: -1;
+        position: fixed;
+        display: none;
+    }
+
+</style>
+<body>
+    <div id="leftDiv">
+        <h1 id="pageTitle">Galleon Clicker</h1>
+        <div class="numberOfGalleon">
+            <p id="displayGalleonNumber"></p>
+        </div>
+        <div id="Galleon">
+            <p id="galleonPerSecond"></p>
+            <img draggable="false" onclick="galleonClicked()" src="Pictures/Galleon.png" width="225px" height="225px">
+        </div>
+    </div>
+
+    <div id="middleDiv">
+        <div id="options">
+            <button id="saveButton" onclick="saveVerified()">Save</button>
+            <button id="gameStats" onclick="openStatsBar()">Stats</button>
+            <button id="resetButton" onclick="verifyReset()">Reset</button>
+
+            <div id="saveVerified">The Game Is Being Saved</div>
+            <div id="verifyReset">
+                <p>Are You Sure You Want To Reset?</p>
+                <button onclick="resetVerified()">Yes</button>
+                <button onclick="document.getElementById('verifyReset').style.display = 'none'">No</button>
+            </div>
+            <div id="resetVerified">The Game Is Being Reset</div>
+            <div id="gameStatsBar">
+                <div id="timePlayed"></div>
+                <div id="galleonsClicked"></div>
+                <div id="lifeTimeGalleons"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wizardStats">
+        <p id="wizardStatsLevel" style="font-size: 22px; margin-left: 25px"></p>
+        <ul>
+            <li id="wizardStatsGPSPer"></li>
+            <li id="wizardStatsGPSTotal"></li>
+        </ul>
+    </div>
+    <div id="rightDiv">
+        <p id="StoreTitle">Store:</p>
+        <!-- Wizards -->
+        <div id="StoreWizards">
+            <div id="muggle" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()">
+                <h id ="muggleLevel"></h>
+                <img draggable="false" src="Pictures/Muggle.png" style="margin-left: 5px; margin-top: -60px;" width="128" height="88">
+                <p id ="muggleCost"></p>
+            </div>
+            <div id="goblin" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()">
+                <h id ="goblinLevel"></h>
+                <div><img draggable="false" src="Pictures/Goblin.png" style="margin-left: -15px; margin-top: -60px;" width="155" height="87"></div>
+                <p id="goblinCost"></p>
+            </div>
+            <div id="dobby" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="dobbyLevel"></h>
+                <div><img draggable="false" src="Pictures/Dobby.png" style="margin-left: 10px; margin-top: -60px;" width="105" height="87"></div>
+                <p id="dobbyCost"></p>
+            </div>
+            <div id="hagrid" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="hagridLevel"></h>
+                <div><img draggable="false" src="Pictures/Hagrid.png" style="margin-left: 10px; margin-top: -60px;" width="105" height="87"></div>
+                <p id="hagridCost"></p>
+            </div>
+            <div id="trelawney" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="trelawneyLevel"></h>
+                <div><img draggable="false" src="Pictures/Trelawney.png" style="margin-left: 20px; margin-top: -70px;" width="75" height="100"></div>
+                <p id="trelawneyCost"></p>
+            </div>
+            <div id="lupin" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="lupinLevel"></h>
+                <div><img draggable="false" src="Pictures/Lupin.png" style="margin-left: 5px; margin-top: -70px;" width="100" height="100"></div>
+                <p id="lupinCost"></p>
+            </div>
+            <div id="mcGonagall" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="mcGonagallLevel"></h>
+                <div><img draggable="false" src="Pictures/McGonagall.png" style="margin-left: 15px; margin-top: -65px;" width="85" height="95"></div>
+                <p id="mcGonagallCost"></p>
+            </div>
+            <div id="snape" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="snapeLevel"></h>
+                <div><img draggable="false" src="Pictures/Snape.png" style="margin-left: -2px; margin-top: -61px;" width="150" height="90"></div>
+                <p id="snapeCost"></p>
+            </div>
+            <div id="ron" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="ronLevel"></h>
+                <div><img draggable="false" src="Pictures/Ron.png" style="margin-left: 12px; margin-top: -65px;" width="90" height="92"></div>
+                <p id="ronCost"></p>
+            </div>
+            <div id="hermione" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="hermioneLevel"></h>
+                <div><img draggable="false" src="Pictures/Hermione.png" style="margin-left: 16px; margin-top: -62px;" width="89" height="90"></div>
+                <p id="hermioneCost"></p>
+            </div>
+            <div id="dumbledore" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="dumbledoreLevel"></h>
+                <div><img draggable="false" src="Pictures/Dumbledore.png" style="margin-left: 20px; margin-top: -63px;" width=83" height="92"></div>
+                <p id="dumbledoreCost"></p>
+            </div>
+            <div id="harry" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()" >
+                <h id ="harryLevel"></h>
+                <div><img draggable="false" src="Pictures/Harry.png" style="margin-left: 20px; margin-top: -65px;" width="88" height="95"></div>
+                <p id="harryCost"></p>
+            </div>
+            <div id="voldemort" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()">
+                <h id ="voldemortLevel"></h>
+                <div><img draggable="false" src="Pictures/Voldemort.png" style="margin-left: 10px; margin-top: -60px;" width="120" height="90"></div>
+                <p id="voldemortCost"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
