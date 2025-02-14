@@ -109,50 +109,26 @@ function saveVerified(){
 
 function openStatsBar(){
     let gameStatsBar = document.getElementById('gameStatsBar')
+
+    if (gameStatsBar.style.display === 'block') {
+        closeStatsBar()
+    }
+    else {
+        gameStatsBar.style.display = 'block'
+        update()
+    }
+}
+
+function closeStatsBar(){
+    let gameStatsBar = document.getElementById('gameStatsBar')
     let timePlayed = document.getElementById('timePlayed')
     let galleonsClicked = document.getElementById('galleonsClicked')
     let lifeTimeGalleons = document.getElementById('lifeTimeGalleons')
-    if (gameStatsBar.style.display === 'block') {
-        gameStatsBar.style.display = 'none'
-        timePlayed.innerHTML = ''
-        galleonsClicked.innerHTML = ''
-        lifeTimeGalleons.innerHTML = ''
-    }
-    else {
-        let totalTime = gameStats.totalTimePlayed
-        // minutes
-        if (totalTime / 60 >= 1){
-            totalTime /= 60
-            // hours
-            if (totalTime / 60 > 1){
-                totalTime /= 60
-                // days
-                if (totalTime / 24 > 1){
-                    totalTime /= 24
-                    totalTime = Math.round(totalTime).toLocaleString()
-                    totalTime += ' days'
-                }
-                else {
-                    totalTime = Math.round(totalTime)
-                    totalTime += ' hours'
-                }
-            }
-            else {
-                totalTime = Math.round(totalTime)
-                totalTime += ' minutes'
-            }
-        }
-        // seconds
-        else {
-            totalTime = Math.round(totalTime)
-            totalTime += ' seconds'
-        }
 
-        gameStatsBar.style.display = 'block'
-        timePlayed.innerHTML = `Total Time Played: ${totalTime}`
-        galleonsClicked.innerHTML = `Total Galleons Clicked: ${Math.round(gameStats.totalGalleonsClicked).toLocaleString()}`
-        lifeTimeGalleons.innerHTML = `Total Galleons Earned: ${Math.round(gameStats.totalGalleonsEarned).toLocaleString()}`
-    }
+    gameStatsBar.style.display = 'none'
+    timePlayed.innerHTML = ''
+    galleonsClicked.innerHTML = ''
+    lifeTimeGalleons.innerHTML = ''
 }
 
 // Opens a div that asks the user to verify that they want to reset
@@ -179,6 +155,42 @@ function update(){
     document.getElementById('galleonPerSecond').innerHTML = `${game.galleonPS.toFixed(1).toLocaleString()} PER SECOND`
     updateTime()
 
+    let gameStatsBar = document.getElementById('gameStatsBar')
+    let timePlayed = document.getElementById('timePlayed')
+    let galleonsClicked = document.getElementById('galleonsClicked')
+    let lifeTimeGalleons = document.getElementById('lifeTimeGalleons')
+    if(gameStatsBar.style.display === 'block'){
+        let totalTime = gameStats.totalTimePlayed
+        // minutes
+        if (totalTime / 60 >= 1) {
+            totalTime /= 60
+            // hours
+            if (totalTime / 60 > 1) {
+                totalTime /= 60
+                // days
+                if (totalTime / 24 > 1) {
+                    totalTime /= 24
+                    totalTime = Math.round(totalTime).toLocaleString()
+                    totalTime += ' days'
+                } else {
+                    totalTime = Math.round(totalTime)
+                    totalTime += ' hours'
+                }
+            } else {
+                totalTime = Math.round(totalTime)
+                totalTime += ' minutes'
+            }
+        }
+        // seconds
+        else {
+            totalTime = Math.round(totalTime)
+            totalTime += ' seconds'
+        }
+
+        timePlayed.innerHTML = `Total Time Played: ${totalTime}`
+        galleonsClicked.innerHTML = `Total Galleons Clicked: ${Math.round(gameStats.totalGalleonsClicked).toLocaleString()}`
+        lifeTimeGalleons.innerHTML = `Total Galleons Earned: ${Math.round(gameStats.totalGalleonsEarned).toLocaleString()}`
+    }
 }
 
 function updateTime(){
