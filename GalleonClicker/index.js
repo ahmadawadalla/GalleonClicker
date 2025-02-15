@@ -81,8 +81,8 @@ function resizer(){
     StoreWizards.style.height = window.innerHeight - 125 + 'px'
 
     gameStatsBar.style.height = window.innerHeight - 190 + 'px'
-    gameStatsBar.style.width = window.innerWidth - 1060 +  'px'
-    middleDiv.style.width = window.innerWidth - 950 +  'px'
+    gameStatsBar.style.width = window.innerWidth - 1015 +  'px'
+    middleDiv.style.width = window.innerWidth - 905 +  'px'
     middleDiv.style.height = window.innerHeight - 12 +  'px'
 
     leftDiv.style.width = window.innerWidth - 900 +  'px'
@@ -107,6 +107,7 @@ function saveVerified(){
 
 }
 
+// opens the game stats bar
 function openStatsBar(){
     let gameStatsBar = document.getElementById('gameStatsBar')
 
@@ -119,6 +120,7 @@ function openStatsBar(){
     }
 }
 
+// closes the game stats bar
 function closeStatsBar(){
     let gameStatsBar = document.getElementById('gameStatsBar')
     let timePlayed = document.getElementById('timePlayed')
@@ -150,9 +152,9 @@ function resetVerified(){
 
 // Updates the numbers in the game
 function update(){
-    document.getElementById('tabTitle').innerHTML = `${Math.floor(game.galleon).toLocaleString()} Galleon Clicker`
-    document.getElementById('displayGalleonNumber').innerHTML = `${Math.floor(game.galleon).toLocaleString()} Galleons`
-    document.getElementById('galleonPerSecond').innerHTML = `${game.galleonPS.toLocaleString()} PER SECOND`
+    document.getElementById('tabTitle').innerHTML = `${numberString(game.galleon)} Galleon Clicker`
+    document.getElementById('displayGalleonNumber').innerHTML = `${numberString(game.galleon)} Galleons`
+    document.getElementById('galleonPerSecond').innerHTML = `${numberString(game.galleonPS)} PER SECOND`
     updateTime()
 
     let gameStatsBar = document.getElementById('gameStatsBar')
@@ -170,7 +172,7 @@ function update(){
                 // days
                 if (totalTime / 24 > 1) {
                     totalTime /= 24
-                    totalTime = Math.round(totalTime).toLocaleString()
+                    totalTime = parseFloat(totalTime).toLocaleString()
                     totalTime += ' days'
                 } else {
                     totalTime = Math.round(totalTime)
@@ -188,11 +190,42 @@ function update(){
         }
 
         timePlayed.innerHTML = `Total Time Played: ${totalTime}`
-        galleonsClicked.innerHTML = `Total Galleons Clicked: ${Math.round(gameStats.totalGalleonsClicked).toLocaleString()}`
-        lifeTimeGalleons.innerHTML = `Total Galleons Earned: ${Math.round(gameStats.totalGalleonsEarned).toLocaleString()}`
+        galleonsClicked.innerHTML = `Total Galleons Clicked: ${Math.round(numberString(gameStats.totalGalleonsClicked))}`
+        lifeTimeGalleons.innerHTML = `Total Galleons Earned: ${Math.round(numberString(gameStats.totalGalleonsEarned))}`
     }
 }
 
+function numberString(number){
+    // million
+    if(number >= 1000000){
+        // billion
+        if (number >= 1000000000){
+            // trillion
+            if (number >= 1000000000000){
+                // quadrillion
+                if (number >= 1000000000000000){
+                    number /= 1000000000000000
+                    return  parseFloat(number).toLocaleString() + ' Quadrillion'
+                }
+                else{
+                    number /= 1000000000000
+                    return  parseFloat(number) + ' Trillion'
+                }
+            }
+            else{
+                number /= 1000000000
+                return  parseFloat(number) + ' Billion'
+            }
+        }
+        else {
+            number /= 1000000
+            return  parseFloat(number) + ' Million'
+        }
+    }
+    return number.toLocaleString()
+}
+
+// updates the time played
 function updateTime(){
     gameStats.currentTime = new Date().getTime() / 1000
     gameStats.totalTimePlayed = gameStats.currentTime - gameStats.timeBegan
@@ -203,7 +236,7 @@ function updateWizards(){
     let totalWizards = 0
     for(let key in game){
         if(key.indexOf('Cost') !== -1){
-            document.getElementById(key).innerHTML = `Cost: ${game[key].toLocaleString()}`
+            document.getElementById(key).innerHTML = `Cost: ${numberString(game[key])}`
         }
         else if(key.indexOf('Level') !== -1){
             document.getElementById(key).innerHTML = `${game[key].toLocaleString()}`
