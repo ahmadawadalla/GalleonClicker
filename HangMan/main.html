@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hang Man</title>
+</head>
+<style>
+    body{
+        background-color: bisque;
+    }
+    h2{
+        margin-left:600px;
+        font-size: 45px;
+    }
+    #hiddenWord{
+        font-size: 70px;
+        margin-top: 210px;
+        margin-left: 518px;
+    }
+    #lettersUsed{
+        background-color: white;
+        border: solid;
+        color: black;
+        font-size: 30px;
+        border-radius: 10px;
+        margin-left: 515px;
+        margin-top: 90px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 30px;
+        width: 350px;
+    }
+    input{
+        font-size: 15px;
+        border-radius: 8px;
+        width: 85px;
+        padding: 7px;
+        text-align: center;
+        margin-left: 85px;
+    }
+    button{
+        font-size: 15px;
+        border-radius: 8px;
+        width: 75px;
+        padding: 7px;
+        text-align: center;
+    }
+    .picture{
+        margin-top: -455px;
+        margin-left: -60px;
+    }
+    .base{
+        border: 6px solid;
+        border-radius: 10px;
+        margin: 0px 150px;
+        width: 100px;
+    }
+    .pole{
+        border: 6px solid;
+        border-radius: 10px;
+        margin: 0px 200px -8px;
+        padding-top: 250px;
+        width: 0px;
+    }
+    .horizontal{
+        border: 6px solid;
+        border-radius: 10px;
+        margin: -5px 172px;
+        padding-right: 107px;
+        width: 90px;
+    }
+    .rope{
+        border: 4px solid;
+        border-radius: 10px;
+        margin: -65px 350px;
+        padding-top: 50px;
+        width: 0px
+    }
+    #head{
+        border: 4px solid;
+        border-radius: 40px;
+        margin-left: 322px;
+        margin-top: -210px;
+        padding: 20px;
+        width: 15px;
+        display: none;
+    }
+    .eye1{
+        border: 4px solid;
+        border-radius: 40px;
+        padding-right: 10px;
+        display: inline;
+        margin-left: -10px;
+    }
+    .eye2{
+        border: 4px solid;
+        border-radius: 40px;
+        padding-right: 10px;
+        display: inline;
+    }
+    #torso{
+        border: 4px solid;
+        border-radius: 24px;
+        margin-left: 327px;
+        margin-top: -2px;
+        padding: 50px 20px 20px;
+        width: 5px;
+        display: none;
+    }
+    #arm1{
+        border: 4px solid;
+        border-radius: 35px;
+        margin-left: 310px;
+        margin-top: -70px;
+        padding-bottom: 50px;
+        width: 12px;
+        display: none;
+    }
+    #arm2{
+        border: 4px solid;
+        border-radius: 35px;
+        margin-left: 377px;
+        margin-top: -57px;
+        padding-bottom: 50px;
+        width: 12px;
+        display: none;
+    }
+    #leg1{
+        border: 4px solid;
+        border-radius: 40px;
+        margin-left: 335px;
+        margin-top: 7px;
+        padding-bottom: 45px;
+        width: 12px;
+        display: none;
+    }
+    #leg2{
+        border: 4px solid;
+        border-radius: 40px;
+        margin-left: 352px;
+        margin-top: -53px;
+        padding-bottom: 45px;
+        width: 12px;
+        display: none;
+    }
+
+</style>
+<body>
+    <h2>Hang Man</h2>
+    <div id="hiddenWord" ><p></p></div>
+    <div id="lettersUsed"><p></p></div>
+    <input id="input" type="text" placeholder="Input Letter" maxlength="1"/>
+    <button onclick="inputChecker()">Submit</button>
+    <div class="picture">
+        <div class="stand">
+            <div class="rope"></div>
+            <div class="horizontal"></div>
+            <div class="pole"></div>
+            <div class="base"></div>
+        </div>
+        <div id="head">
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+        </div>
+        <div id="torso"></div>
+        <div id="arm1"></div>
+        <div id="arm2"></div>
+        <div id="leg1"></div>
+        <div id="leg2"></div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
