@@ -81,8 +81,9 @@ function resizer(){
     StoreWizards.style.height = window.innerHeight - 125 + 'px'
 
     gameStatsBar.style.height = window.innerHeight - 190 + 'px'
-    gameStatsBar.style.width = window.innerWidth - 1015 +  'px'
-    middleDiv.style.width = window.innerWidth - 905 +  'px'
+    gameStatsBar.style.width = window.innerWidth - 1055 +  'px'
+
+    middleDiv.style.width = window.innerWidth - 945 +  'px'
     middleDiv.style.height = window.innerHeight - 12 +  'px'
 
     leftDiv.style.width = window.innerWidth - 900 +  'px'
@@ -190,11 +191,12 @@ function update(){
         }
 
         timePlayed.innerHTML = `Total Time Played: ${totalTime}`
-        galleonsClicked.innerHTML = `Total Galleons Clicked: ${Math.round(numberString(gameStats.totalGalleonsClicked))}`
-        lifeTimeGalleons.innerHTML = `Total Galleons Earned: ${Math.round(numberString(gameStats.totalGalleonsEarned))}`
+        galleonsClicked.innerHTML = `Total Galleons Clicked: ${numberString(gameStats.totalGalleonsClicked)}`
+        lifeTimeGalleons.innerHTML = `Total Galleons Earned: ${numberString(gameStats.totalGalleonsEarned)}`
     }
 }
 
+// converts number to string
 function numberString(number){
     // million
     if(number >= 1000000){
@@ -205,21 +207,21 @@ function numberString(number){
                 // quadrillion
                 if (number >= 1000000000000000){
                     number /= 1000000000000000
-                    return  parseFloat(number).toLocaleString() + ' Quadrillion'
+                    return  parseFloat(number.toFixed(2)).toLocaleString() + ' Quadrillion'
                 }
                 else{
                     number /= 1000000000000
-                    return  parseFloat(number) + ' Trillion'
+                    return  parseFloat(number.toFixed(2)).toLocaleString() + ' Trillion'
                 }
             }
             else{
                 number /= 1000000000
-                return  parseFloat(number) + ' Billion'
+                return  parseFloat(number.toFixed(2)).toLocaleString() + ' Billion'
             }
         }
         else {
             number /= 1000000
-            return  parseFloat(number) + ' Million'
+            return  parseFloat(number.toFixed(2)).toLocaleString() + ' Million'
         }
     }
     return number.toLocaleString()
