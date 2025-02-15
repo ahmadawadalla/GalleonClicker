@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stop Watch</title>
+</head>
+<style>
+    body{
+        background-color: azure;
+    }
+    .band{
+        background-color: burlywood;
+        border: 8px solid;
+        border-radius: 200px;
+        width: 1480px;
+        margin-top: 150px;
+    }
+    .hole1{
+        background-color: azure;
+        border: 5px solid;
+        border-radius: 50px;
+        padding: 20px;
+        position: relative;
+        display: inline;
+        top: 190px;
+        left: 150px;
+    }
+    .hole2{
+        background-color: azure;
+        border: 5px solid;
+        border-radius: 50px;
+        padding: 20px;
+        position: relative;
+        display: inline;
+        top: 190px;
+        left: 230px;
+    }
+    .watch{
+        text-align: center;
+        border: 7px solid;
+        border-radius: 35px;
+        box-shadow: 3px 1px 10px 1px #353131;
+        width: 500px;
+        margin: -23px 490px -3px;
+        background-color: lightgray;
+    }
+    .buckleBand{
+        background-color: saddlebrown;
+        border: 4px solid;
+        box-shadow: 3px 0px 10px #353131;
+        padding: 194px 21px;
+        position: relative;
+        display: inline;
+        top: 193px;
+        left: 1015px;
+    }
+    h1{
+        background-color: #969494;
+        font-size: 45px;
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;
+        color: lightgreen;
+        border-radius: 15px;
+        border: 0px solid darkgrey;
+        position: relative;
+        width: 250px;
+        padding-top: 7px;
+        padding-bottom: 5px;
+        left: 120px;
+    }
+    h3{
+        font-size: 65px;
+    }
+    button{
+        font-size: 25px;
+        margin: 5px 5px 50px;
+        border-radius: 10px;
+        padding: 7px 15px;
+    }
+
+</style>
+<body>
+    <div class = "band">
+        <div class="hole1"></div>
+        <div class="hole2"></div>
+        <div class="buckleBand"></div>
+
+        <div class = "watch">
+            <h3>Stop Watch</h3>
+            <h1 id ="time">00:00.00</h1>
+            <button onclick="startClock()">Start</button>
+            <button onclick="stopClock()">Stop</button>
+            <button onclick="resetClock()">Reset</button>
+            <script src="index.js"></script>
+        </div>
+    </div>
+</body>
+</html>
