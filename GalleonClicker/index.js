@@ -307,9 +307,9 @@ function wizardStatsUpdate(idName){
     let wizardStatsGPSTotal = document.getElementById('wizardStatsGPSTotal')
 
     wizardStatsLevel.innerHTML = `owned: ${level}`
-    wizardStatsGPSPer.innerHTML = `\neach ${wizardName} produces ${GPS.toLocaleString()} per second\n`
+    wizardStatsGPSPer.innerHTML = `\neach ${wizardName} produces ${numberString(GPS)} per second\n`
     if(level > 0)
-        wizardStatsGPSTotal.innerHTML = `${level} ${wizardName} produces ${(GPS * level).toLocaleString()} per second (${GPSPercent}% of total GPS)\n`
+        wizardStatsGPSTotal.innerHTML = `${level} ${wizardName} produces ${numberString(GPS * level)} per second (${GPSPercent}% of total GPS)\n`
     else
         wizardStatsGPSTotal.innerHTML = `${wizardName} is currently not producing any per second\n`
 }
