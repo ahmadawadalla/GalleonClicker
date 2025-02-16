@@ -173,7 +173,7 @@ function update(){
                 // days
                 if (totalTime / 24 > 1) {
                     totalTime /= 24
-                    totalTime = parseFloat(totalTime).toLocaleString()
+                    totalTime = parseFloat(totalTime.toFixed(2)).toLocaleString()
                     totalTime += ' days'
                 } else {
                     totalTime = Math.round(totalTime)
