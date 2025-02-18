@@ -76,7 +76,6 @@ function resizer(){
     let gameStatsBar = document.getElementById('gameStatsBar')
     let StoreWizards = document.getElementById('StoreWizards')
     let middleDiv = document.getElementById('middleDiv')
-    let leftDiv = document.getElementById('leftDiv')
 
     StoreWizards.style.height = window.innerHeight - 125 + 'px'
 
@@ -85,8 +84,6 @@ function resizer(){
 
     middleDiv.style.width = window.innerWidth - 945 +  'px'
     middleDiv.style.height = window.innerHeight - 12 +  'px'
-
-    leftDiv.style.width = window.innerWidth - 900 +  'px'
 }
 
 // Saves the game
