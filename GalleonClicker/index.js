@@ -74,6 +74,7 @@ document.addEventListener('mousemove',(event)=>{
 
 function resizer(){
     let gameStatsBar = document.getElementById('gameStatsBar')
+    let gameDescription = document.getElementById('gameDescription')
     let StoreWizards = document.getElementById('StoreWizards')
     let middleDiv = document.getElementById('middleDiv')
 
@@ -81,6 +82,9 @@ function resizer(){
 
     gameStatsBar.style.height = window.innerHeight - 190 + 'px'
     gameStatsBar.style.width = window.innerWidth - 1055 +  'px'
+
+    gameDescription.style.height = window.innerHeight - 190 + 'px'
+    gameDescription.style.width = window.innerWidth - 1055 +  'px'
 
     middleDiv.style.width = window.innerWidth - 945 +  'px'
     middleDiv.style.height = window.innerHeight - 12 +  'px'
@@ -129,6 +133,26 @@ function closeStatsBar(){
     timePlayed.innerHTML = ''
     galleonsClicked.innerHTML = ''
     lifeTimeGalleons.innerHTML = ''
+}
+
+// opens the game stats bar
+function openGameDescription(){
+    let gameDescription = document.getElementById('gameDescription')
+
+    if (gameDescription.style.display === 'block') {
+        closeGameDescription()
+    }
+    else {
+        gameDescription.style.display = 'block'
+        update()
+    }
+}
+
+// closes the game stats bar
+function closeGameDescription(){
+    let gameDescription = document.getElementById('gameDescription')
+
+    gameDescription.style.display = 'none'
 }
 
 // Opens a div that asks the user to verify that they want to reset
@@ -305,8 +329,8 @@ function wizardStatsUpdate(idName){
     let wizardStatsGPSPer = document.getElementById('wizardStatsGPSPer')
     let wizardStatsGPSTotal = document.getElementById('wizardStatsGPSTotal')
 
-    wizardStatsLevel.innerHTML = `owned: ${level}`
-    wizardStatsGPSPer.innerHTML = `\neach ${wizardName} produces ${numberString(GPS)} per second\n`
+    wizardStatsLevel.innerHTML = `Owned: ${level}`
+    wizardStatsGPSPer.innerHTML = `\nEach ${wizardName} produces ${numberString(GPS)} per second\n`
     if(level > 0)
         wizardStatsGPSTotal.innerHTML = `${level} ${wizardName} produces ${numberString(GPS * level)} per second (${GPSPercent}% of total GPS)\n`
     else
