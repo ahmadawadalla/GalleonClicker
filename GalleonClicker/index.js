@@ -112,11 +112,13 @@ function saveVerified(){
 // opens the game stats bar
 function openStatsBar(){
     let gameStatsBar = document.getElementById('gameStatsBar')
+    let gameDescription = document.getElementById('gameDescription')
 
     if (gameStatsBar.style.display === 'block') {
         closeStatsBar()
     }
     else {
+        gameDescription.style.display = 'none'
         gameStatsBar.style.display = 'block'
         update()
     }
@@ -138,11 +140,13 @@ function closeStatsBar(){
 // opens the game stats bar
 function openGameDescription(){
     let gameDescription = document.getElementById('gameDescription')
+    let gameStatsBar = document.getElementById('gameStatsBar')
 
     if (gameDescription.style.display === 'block') {
         closeGameDescription()
     }
     else {
+        gameStatsBar.style.display = 'none'
         gameDescription.style.display = 'block'
         update()
     }
@@ -157,7 +161,14 @@ function closeGameDescription(){
 
 // Opens a div that asks the user to verify that they want to reset
 function verifyReset(){
-    document.getElementById("verifyReset").style.display = 'block'
+    let verifyReset = document.getElementById('verifyReset')
+
+    if (verifyReset.style.display === 'block') {
+        verifyReset.style.display = 'none'
+    }
+    else {
+        verifyReset.style.display = 'block'
+    }
 }
 
 // Opens a div that says that the game is being reset
