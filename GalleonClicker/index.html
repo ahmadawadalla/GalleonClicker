@@ -42,29 +42,38 @@
 
     #options{
         background-color: rgba(76, 59, 134, 0.75);
-        padding: 10px;
+        padding: 12px;
         border-bottom: solid 4px rgba(150, 139, 77, 0.85);
-
+        text-align: center;
     }
     #saveButton{
         text-align: center;
         border-radius: 10px;
-        padding: 20px 40px;
+        padding: 18px 40px;
         font-size: 18px;
-        z-index: 1;
-    }
-    #resetButton{
-        text-align: center;
-        border-radius: 10px;
-        padding: 20px 40px;
-        font-size: 18px;
-        float: right;
+        margin-right: 3px;
         z-index: 1;
     }
     #gameStats{
         text-align: center;
         border-radius: 10px;
-        padding: 20px 40px;
+        padding: 18px 40px;
+        font-size: 18px;
+        margin-right: 3px;
+        z-index: 1;
+    }
+    #info{
+        text-align: center;
+        border-radius: 10px;
+        padding: 18px 40px;
+        font-size: 18px;
+        margin-right: 3px;
+        z-index: 1;
+    }
+    #resetButton{
+        text-align: center;
+        border-radius: 10px;
+        padding: 18px 40px;
         font-size: 18px;
         z-index: 1;
     }
@@ -275,6 +284,19 @@
         position: fixed;
         display: none;
     }
+    #gameDescription{
+        border: 3px solid rgba(150, 139, 77, 0.85);
+        font-size: 21px;
+        color: white;
+        background-color: #353131;
+        text-align: center;
+        margin-top: 10px;
+        padding: 45px 55px;
+        left: 509px;
+        z-index: -1;
+        position: fixed;
+        display: none;
+    }
 
 </style>
 <body>
@@ -295,6 +317,7 @@
     <div id="options">
         <button id="saveButton" onclick="saveVerified()">Save</button>
         <button id="gameStats" onclick="openStatsBar()">Stats</button>
+        <button id="info" onclick="openGameDescription()">Info</button>
         <button id="resetButton" onclick="verifyReset()">Reset</button>
 
         <div id="saveVerified">The Game Is Being Saved</div>
@@ -308,6 +331,19 @@
             <div id="timePlayed"></div>
             <div id="galleonsClicked"></div>
             <div id="lifeTimeGalleons"></div>
+        </div>
+        <div id="gameDescription">
+            <p>
+                The game starts out with the player having no galleons. The player has the option to click the Big Coin,
+                on the left side of the screen, which produces one galleon per click.
+                <br><br>
+                When the player has 15 galleons,
+                they may buy a muggle, which makes you 1 galleon every 10 seconds. The player can then keep producing
+                galleons, until they buy goblins, dobbys, hagrids and so on. There is also more information on each
+                person when you hover over them.
+                <br><br><br>
+                Designed by: Ahmad Awadalla
+            </p>
         </div>
     </div>
 </div>
