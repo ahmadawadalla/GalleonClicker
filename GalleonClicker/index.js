@@ -310,6 +310,8 @@ function wizards(idName){
             muggleNoise()
         else if (wizardName === 'goblin')
             goblinNoise()
+        else if (wizardName === 'dobby')
+            dobbyNoise()
         else if(wizardName === 'dumbledore')
             dumbledoreNoise()
         else if(wizardName === 'harry')
@@ -328,6 +330,12 @@ function muggleNoise(){
 }
 function goblinNoise(){
     let sound = new Audio('Sounds/goblinSound.mp4')
+    sound.volume = .5
+    sound.pause()
+    sound.play()
+}
+function dobbyNoise(){
+    let sound = new Audio('Sounds/dobbySound.mp4')
     sound.volume = .5
     sound.pause()
     sound.play()
