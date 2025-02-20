@@ -1,0 +1,300 @@
+body{
+    background-color: #353131;
+    position:fixed;
+    user-select: none;
+}
+
+img{
+    -webkit-user-drag: none;
+}
+
+h1{
+    background-color: rgba(204, 112, 215, 0.19);
+    font-size: 26px;
+    margin-top: 100px;
+    padding: 2px 95px;
+    left: 70px;
+    top: -50px;
+    color: white;
+    position: fixed;
+}
+
+#leftDiv{
+    left: 0;
+    position: fixed;
+}
+
+#middleDiv{
+    background-color: #353131;
+    border: solid 4px rgba(150, 139, 77, 0.85);
+    position: fixed;
+    margin-left: 500px;
+}
+
+#rightDiv{
+    margin-top: 10px;
+    right: 0;
+    cursor: pointer;
+    color: black;
+    position: fixed;
+}
+
+#options{
+    background-color: rgba(76, 59, 134, 0.75);
+    padding: 12px;
+    border-bottom: solid 4px rgba(150, 139, 77, 0.85);
+    text-align: center;
+}
+#saveButton{
+    text-align: center;
+    border-radius: 10px;
+    padding: 18px 40px;
+    font-size: 18px;
+    margin-right: 3px;
+    z-index: 1;
+}
+#gameStats{
+    text-align: center;
+    border-radius: 10px;
+    padding: 18px 40px;
+    font-size: 18px;
+    margin-right: 3px;
+    z-index: 1;
+}
+#info{
+    text-align: center;
+    border-radius: 10px;
+    padding: 18px 40px;
+    font-size: 18px;
+    margin-right: 3px;
+    z-index: 1;
+}
+#resetButton{
+    text-align: center;
+    border-radius: 10px;
+    padding: 18px 40px;
+    font-size: 18px;
+    z-index: 1;
+}
+
+#numberOfGalleon{
+    background-color: rgba(204, 112, 215, 0.19);
+    color: ghostwhite;
+    text-align: center;
+    font-size: 24px;
+    height: 60px;
+    width: 470px;
+    padding: 1px 30px 10px 20px;
+    margin-left: -11px;
+    margin-top: 95px;
+    position: relative;
+}
+#Galleon{
+    color: ghostwhite;
+    text-align: center;
+    font-size: 18px;
+    top: 200px;
+    left: 130px;
+    cursor: pointer;
+    position: fixed;
+}
+
+/*Store Items*/
+
+#StoreWizards{
+    overflow-y: auto;
+    float: right;
+}
+#StoreTitle{
+    color: White;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/*Wizards*/
+#muggle{
+    background-color: white;
+    border: solid white;
+    height: 100px;
+}
+#goblin,
+#dobby,
+#hagrid,
+#trelawney,
+#lupin,
+#mcGonagall,
+#snape,
+#ron,
+#hermione,
+#dumbledore,
+#harry,
+#voldemort
+{
+    background-color: white;
+    border: solid white;
+    height: 100px;
+    width: 385px;
+    margin-top: 30px;
+}
+
+/*Levels*/
+#muggleLevel,
+#goblinLevel,
+#dobbyLevel,
+#hagridLevel,
+#trelawneyLevel,
+#lupinLevel,
+#mcGonagallLevel,
+#snapeLevel,
+#ronLevel,
+#hermioneLevel,
+#dumbledoreLevel,
+#harryLevel,
+#voldemortLevel
+{
+    font-size: 28px;
+    display: block;
+    margin-top: 35px;
+    margin-left: 150px;
+}
+
+/*Costs*/
+#muggleCost,
+#goblinCost,
+#dobbyCost,
+#hagridCost,
+#trelawneyCost,
+#lupinCost,
+#mcGonagallCost,
+#snapeCost,
+#ronCost,
+#hermioneCost,
+#dumbledoreCost,
+#harryCost,
+#voldemortCost
+{
+    margin-top: -30px;
+    margin-left: 210px;
+    margin-right: 15px;
+}
+
+/*Hover*/
+#muggle:hover,
+#goblin:hover,
+#dobby:hover,
+#hagrid:hover,
+#trelawney:hover,
+#lupin:hover,
+#mcGonagall:hover,
+#snape:hover,
+#ron:hover,
+#hermione:hover,
+#dumbledore:hover,
+#harry:hover,
+#voldemort:hover
+{
+    background-color: tan;
+    color: white;
+}
+
+#wizardStats{
+    border: 2px solid rgba(128, 128, 128, 0.75);
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    opacity: 92%;
+    width: 375px;
+    text-align: left;
+    padding-right: 15px;
+    position: absolute;
+    display: none;
+}
+
+button:hover{
+    background-color: tan;
+    color: white;
+    cursor: pointer;
+}
+
+/*Hidden Divs*/
+#saveVerified{
+    border: 3px solid rgba(128, 128, 128, 0.75);
+    font-size: 25px;
+    color: white;
+    background-color: black;
+    opacity: 90%;
+    width: fit-content;
+    text-align: center;
+    left: 70px;
+    right: 0;
+    bottom: 15px;
+    margin-inline: auto;
+    padding: 45px 55px;
+    position: fixed;
+    display: none;
+}
+#verifyReset{
+    border: 3px solid rgba(128, 128, 128, 0.75);
+    font-size: 25px;
+    color: white;
+    background-color: black;
+    width: fit-content;
+    text-align: center;
+    left: 70px;
+    right: 0;
+    margin-top: 40px;
+    margin-inline: auto;
+    padding: 40px 55px;
+    position: fixed;
+    display: none;
+}
+#verifyReset button{
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 18px;
+}
+#resetVerified{
+    border: 3px solid rgba(128, 128, 128, 0.75);
+    font-size: 25px;
+    color: white;
+    background-color: black;
+    opacity: 90%;
+    width: fit-content;
+    text-align: center;
+    left: 70px;
+    right: 0;
+    bottom: 15px;
+    margin-inline: auto;
+    padding: 45px 55px;
+    position: fixed;
+    display: none;
+}
+#gameStatsBar{
+    overflow-y: auto;
+    border: 3px solid rgba(150, 139, 77, 0.85);
+    font-size: 21px;
+    color: white;
+    background-color: #353131;
+    text-align: center;
+    margin-top: 10px;
+    padding: 45px 55px;
+    left: 509px;
+    z-index: -1;
+    position: fixed;
+    display: none;
+}
+#gameDescription{
+    overflow-y: auto;
+    border: 3px solid rgba(150, 139, 77, 0.85);
+    font-size: 21px;
+    color: white;
+    background-color: #353131;
+    text-align: center;
+    margin-top: 10px;
+    padding: 45px 55px;
+    left: 509px;
+    z-index: -1;
+    position: fixed;
+    display: none;
+}

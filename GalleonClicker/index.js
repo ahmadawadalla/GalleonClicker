@@ -72,6 +72,7 @@ document.addEventListener('mousemove',(event)=>{
     yPosition = event.clientY - 70
 })
 
+// resizes the divs according to the window size
 function resizer(){
     let gameStatsBar = document.getElementById('gameStatsBar')
     let gameDescription = document.getElementById('gameDescription')
@@ -137,7 +138,7 @@ function closeStatsBar(){
     lifeTimeGalleons.innerHTML = ''
 }
 
-// opens the game stats bar
+// opens the game description bar
 function openGameDescription(){
     let gameDescription = document.getElementById('gameDescription')
     let gameStatsBar = document.getElementById('gameStatsBar')
@@ -152,7 +153,7 @@ function openGameDescription(){
     }
 }
 
-// closes the game stats bar
+// closes the game description bar
 function closeGameDescription(){
     let gameDescription = document.getElementById('gameDescription')
 
@@ -289,7 +290,6 @@ function galleonClicked(){
 
     let sound = new Audio('Sounds/mouseClick.mp3')
     sound.volume = 0.05
-    sound.pause()
     sound.play()
 }
 
@@ -380,6 +380,11 @@ function wizardStatsRemove(){
     update()
     saveGame()
     resizer()
+
+    // startup sound
+    let sound = document.getElementById('startupSound')
+    sound.volume = .075
+
     setInterval(() => {
         game.galleon += game.galleonPS
         gameStats.totalGalleonsEarned += game.galleonPS
