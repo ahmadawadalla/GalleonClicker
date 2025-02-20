@@ -99,13 +99,12 @@ function saveGame(){
 
 // Opens a div that says that the game is being saved
 function saveVerified(){
-    let pageTitle = document.getElementById("pageTitle")
     let saveVerified = document.getElementById("saveVerified")
 
     saveVerified.style.display = 'block'
     saveGame()
     setTimeout(()=> {
-        saveGame(), saveVerified.style.display = 'none'
+        saveGame(); saveVerified.style.display = 'none'
     },1500)
 
 }
@@ -180,7 +179,7 @@ function resetVerified(){
     resetVerified.style.display = 'block'
 
     setTimeout(()=> {
-        resetVerified.style.display = 'none', localStorage.clear(), location.reload()
+        resetVerified.style.display = 'none'; localStorage.clear(); location.reload()
     },2000)
 }
 
@@ -313,6 +312,7 @@ function wizards(idName){
 }
 function playWizardNoise(wizardName){
     let sound = new Audio(`Sounds/${wizardName}Sound.mp4`)
+    sound.volume = .5
     sound.play()
 }
 
