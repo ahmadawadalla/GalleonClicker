@@ -6,7 +6,7 @@
 </head>
 <body>
 <audio id="startupSound" autoplay="autoplay">
-    <source src="Sounds/mysteriousSound.mp3">
+    <source src="Sounds/mysteriousSound.mp4">
 </audio>
 
 <div id="leftDiv">
@@ -16,9 +16,9 @@
     </div>
     <div id="Galleon" style="z-index: 1">
         <p id="galleonPerSecond"></p>
-        <img onclick="galleonClicked()" src="Pictures/Galleon.png" width="225px" height="225px">
+        <img onclick="galleonClicked()" src="Pictures/Galleon.png" width="225" height="225"/>
     </div>
-    <img src='Pictures/GringotsBG.png' style="opacity: 55%; position: fixed;" width="517">
+    <img src='Pictures/GringotsBG.png' style="opacity: 55%; position: fixed;" width="517"/>
 
 </div>
 
@@ -70,7 +70,7 @@
     <div id="StoreWizards">
         <div id="muggle" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()">
             <h id ="muggleLevel"></h>
-            <img src="Pictures/Muggle.png" style="margin-left: 5px; margin-top: -60px;" width="128" height="88">
+            <img src="Pictures/Muggle.png" style="margin-left: 5px; margin-top: -60px;" width="128" height="88" />
             <p id ="muggleCost"></p>
         </div>
         <div id="goblin" onclick="wizards(this)" onmousemove="getPosition(this)" onmouseleave="wizardStatsRemove()">

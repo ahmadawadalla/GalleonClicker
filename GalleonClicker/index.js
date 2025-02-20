@@ -287,7 +287,7 @@ function galleonClicked(){
     gameStats.totalGalleonsEarned += game.clickRate
     update()
 
-    let sound = new Audio('Sounds/mouseClick.mp3')
+    let sound = new Audio('Sounds/mouseClick.mp4')
     sound.volume = 0.05
     sound.play()
 }
