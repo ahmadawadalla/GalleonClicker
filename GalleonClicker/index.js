@@ -226,6 +226,11 @@ function update(){
         galleonsClicked.innerHTML = `Total Galleons Clicked: ${numberString(gameStats.totalGalleonsClicked)}`
         lifeTimeGalleons.innerHTML = `Total Galleons Earned: ${numberString(gameStats.totalGalleonsEarned)}`
     }
+
+    // checks if cheated
+    if(gameStats.totalGalleonsEarned < game.galleon){
+        location.reload()
+    }
 }
 
 // converts number to string
