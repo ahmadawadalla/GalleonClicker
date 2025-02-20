@@ -305,9 +305,50 @@ function wizards(idName){
         game[level] += 1
         game.galleonPS += game[gps]
         game[cost] = Math.floor(game[cost] * 1.15)
+
+        if (wizardName === 'muggle')
+            muggleNoise()
+        else if (wizardName === 'goblin')
+            goblinNoise()
+        else if(wizardName === 'dumbledore')
+            dumbledoreNoise()
+        else if(wizardName === 'harry')
+            harryNoise()
+        else if (wizardName === 'voldemort')
+            voldemortNoise()
     }
     updateWizards()
     update()
+}
+function muggleNoise(){
+    let sound = new Audio('Sounds/muggleSound.mp4')
+    sound.volume = .5
+    sound.pause()
+    sound.play()
+}
+function goblinNoise(){
+    let sound = new Audio('Sounds/goblinSound.mp4')
+    sound.volume = .5
+    sound.pause()
+    sound.play()
+}
+function dumbledoreNoise(){
+    let sound = new Audio('Sounds/dumbledoreSound.mp4')
+    sound.volume = .5
+    sound.pause()
+    sound.play()
+}
+function harryNoise(){
+    let sound = new Audio('Sounds/harrySound.mp4')
+    sound.volume = .5
+    sound.pause()
+    sound.play()
+}
+function voldemortNoise(){
+    let sound = new Audio('Sounds/voldemortSound.mp4')
+    sound.volume = .5
+    sound.pause()
+    sound.play()
 }
 
 // gets x and y position when you hover over wizards
@@ -383,7 +424,7 @@ function wizardStatsRemove(){
 
     // startup sound
     let sound = document.getElementById('startupSound')
-    sound.volume = .075
+    sound.volume = .2
 
     setInterval(() => {
         game.galleon += game.galleonPS
