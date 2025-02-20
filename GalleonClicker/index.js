@@ -288,7 +288,7 @@ function galleonClicked(){
     update()
 
     let sound = new Audio('Sounds/mouseClick.mp4')
-    sound.volume = 0.05
+    sound.volume = 0.02
     sound.play()
 }
 
