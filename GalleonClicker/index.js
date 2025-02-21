@@ -183,6 +183,7 @@ function resetVerified(){
     },2000)
 }
 
+// adds a bounce in to an img
 function bounceIn(img){
     let heightPercent = img.height / 100
     let widthPercent = img.width / 100
@@ -191,6 +192,7 @@ function bounceIn(img){
     document.addEventListener('mouseup',()=> {bounceOut(img,heightPercent, widthPercent)})
 }
 
+// adds a bounce out to an img
 function bounceOut(img, heightPercent, widthPercent){
     img.height = heightPercent * 100
     img.width = widthPercent * 100
