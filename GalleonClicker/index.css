@@ -90,6 +90,8 @@ h1{
     position: relative;
 }
 #Galleon{
+    z-index: 1;
+    position: absolute;
     color: ghostwhite;
     margin-top: 75px;
     left: 130px;
