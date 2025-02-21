@@ -91,10 +91,8 @@ h1{
 }
 #Galleon{
     color: ghostwhite;
-    text-align: center;
-    font-size: 18px;
     margin-top: 75px;
-    left: 135px;
+    left: 130px;
     cursor: pointer;
 }
 
