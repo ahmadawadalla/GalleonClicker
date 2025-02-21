@@ -186,10 +186,8 @@ function resetVerified(){
 function bounceIn(img){
     let heightPercent = img.height / 100
     let widthPercent = img.width / 100
-    while (img.height >= heightPercent * 98){
-        img.height -= heightPercent
-        img.width -= widthPercent
-    }
+    img.height -= heightPercent * 2
+    img.width -= widthPercent * 2
     document.addEventListener('mouseup',()=> {bounceOut(img,heightPercent, widthPercent)})
 }
 
