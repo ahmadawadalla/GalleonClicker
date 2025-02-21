@@ -183,6 +183,21 @@ function resetVerified(){
     },2000)
 }
 
+function bounceIn(img){
+    let heightPercent = img.height / 100
+    let widthPercent = img.width / 100
+    while (img.height >= heightPercent * 98){
+        img.height -= heightPercent
+        img.width -= widthPercent
+    }
+    document.addEventListener('mouseup',()=> {bounceOut(img,heightPercent, widthPercent)})
+}
+
+function bounceOut(img, heightPercent, widthPercent){
+    img.height = heightPercent * 100
+    img.width = widthPercent * 100
+}
+
 // Updates the numbers in the game
 function update(){
     document.getElementById('tabTitle').innerHTML = `${numberString(game.galleon)} Galleon Clicker`

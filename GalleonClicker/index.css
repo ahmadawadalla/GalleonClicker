@@ -93,10 +93,9 @@ h1{
     color: ghostwhite;
     text-align: center;
     font-size: 18px;
-    top: 200px;
-    left: 130px;
+    margin-top: 75px;
+    left: 145px;
     cursor: pointer;
-    position: fixed;
 }
 
 /*Store Items*/

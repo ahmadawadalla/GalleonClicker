@@ -14,11 +14,12 @@
     <div id="numberOfGalleon">
         <p id="displayGalleonNumber"></p>
     </div>
-    <div id="Galleon" style="z-index: 1">
-        <p id="galleonPerSecond"></p>
-        <img onclick="galleonClicked()" src="Pictures/Galleon.png" width="225" height="225"/>
+    <p id="galleonPerSecond" style="top:200px; left: 200px; color: white; position: fixed; z-index: 1;"></p>
+
+    <div id="Galleon" style="z-index: 1; position: absolute">
+        <img id="galleonPicture" onclick="galleonClicked()" onmousedown="bounceIn(this)" src="Pictures/Galleon.png" width="225" height="225"/>
     </div>
-    <img src='Pictures/GringotsBG.png' style="opacity: 55%; position: fixed;" width="517"/>
+    <img src='Pictures/GringotsBG.png' style="opacity: 55%; position: fixed; top: 173px" width="517"/>
 
 </div>
 
