@@ -69,7 +69,7 @@ window.addEventListener('resize',()=>{
 })
 
 document.addEventListener('mousemove',(event)=>{
-    yPosition = event.clientY - 70
+    yPosition = event.clientY - 80
 })
 
 // resizes the divs according to the window size
@@ -211,31 +211,8 @@ function update(){
     let lifeTimeGalleons = document.getElementById('lifeTimeGalleons')
     if(gameStatsBar.style.display === 'block'){
         let totalTime = gameStats.totalTimePlayed
-        // minutes
-        if (totalTime / 60 >= 1) {
-            totalTime /= 60
-            // hours
-            if (totalTime / 60 > 1) {
-                totalTime /= 60
-                // days
-                if (totalTime / 24 > 1) {
-                    totalTime /= 24
-                    totalTime = parseFloat(totalTime.toFixed(2)).toLocaleString()
-                    totalTime += ' days'
-                } else {
-                    totalTime = Math.round(totalTime)
-                    totalTime += ' hours'
-                }
-            } else {
-                totalTime = Math.round(totalTime)
-                totalTime += ' minutes'
-            }
-        }
-        // seconds
-        else {
-            totalTime = Math.round(totalTime)
-            totalTime += ' seconds'
-        }
+
+        totalTime = timeString(totalTime)
 
         timePlayed.innerHTML = `Total Time Played: ${totalTime}`
         galleonsClicked.innerHTML = `Total Galleons Clicked: ${numberString(gameStats.totalGalleonsClicked)}`
@@ -246,6 +223,42 @@ function update(){
     if(gameStats.totalGalleonsEarned < game.galleon){
         location.reload()
     }
+}
+
+function timeString(time){
+    // minutes
+    if (time / 60 >= 1) {
+        time /= 60
+        // hours
+        if (time / 60 > 1) {
+            time /= 60
+            // days
+            if (time / 24 > 1) {
+                time /= 24
+                if (time / 365 > 1) {
+                    time /= 365
+                    time = parseFloat(time.toFixed(1)).toLocaleString()
+                    time += ' years'
+                }
+                else {
+                    time = parseFloat(time.toFixed(1)).toLocaleString()
+                    time += ' days'
+                }
+            } else {
+                time = Math.round(time)
+                time += ' hours'
+            }
+        } else {
+            time = Math.round(time)
+            time += ' minutes'
+        }
+    }
+    // seconds
+    else {
+        time = Math.round(time)
+        time += ' seconds'
+    }
+    return time
 }
 
 // converts number to string
@@ -330,6 +343,8 @@ function wizards(idName){
     updateWizards()
     update()
 }
+
+// plays wizard sounds
 function playWizardNoise(wizardName){
     let sound = new Audio(`Sounds/${wizardName}Sound.mp4`)
     sound.volume = .5
@@ -355,6 +370,9 @@ function wizardStatsUpdate(idName){
     let level = game[wizardName + 'Level']
     let GPS = game[wizardName + 'GPS']
     let GPSPercent = ((GPS * level) * 100 / game.galleonPS).toFixed(1)
+    let timeLeftToBuy = 0
+    if(game.galleon < game[wizardName + 'Cost'])
+        timeLeftToBuy = (game[wizardName + 'Cost'] - game.galleon)/ game.galleonPS
 
     wizardName = wizardName[0].toUpperCase() + wizardName.substring(1)
 
@@ -365,6 +383,7 @@ function wizardStatsUpdate(idName){
     let wizardStatsLevel = document.getElementById('wizardStatsLevel')
     let wizardStatsGPSPer = document.getElementById('wizardStatsGPSPer')
     let wizardStatsGPSTotal = document.getElementById('wizardStatsGPSTotal')
+    let wizardStatsTimeLeft = document.getElementById('wizardStatsTimeLeft')
 
     wizardStatsLevel.innerHTML = `Owned: ${level}`
     wizardStatsGPSPer.innerHTML = `\nEach ${wizardName} produces ${numberString(GPS)} per second\n`
@@ -372,6 +391,13 @@ function wizardStatsUpdate(idName){
         wizardStatsGPSTotal.innerHTML = `${level} ${wizardName} produces ${numberString(GPS * level)} per second (${GPSPercent}% of total GPS)\n`
     else
         wizardStatsGPSTotal.innerHTML = `${wizardName} is currently not producing any per second\n`
+
+    if(game.galleonPS === 0){
+        wizardStatsTimeLeft.innerHTML = 'Time Left: N/A'
+    }
+    else{
+        wizardStatsTimeLeft.innerHTML = `Time Left: ${timeString(timeLeftToBuy)}`
+    }
 }
 
 // removes wizards stats once you un-hover from a wizard
