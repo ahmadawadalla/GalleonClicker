@@ -325,7 +325,7 @@ function galleonClicked(){
 // noise when the galleon is clicked
 function galleonNoise(){
     let randomize = Math.floor(Math.random() * 7 + 1)
-    let sound = new Audio(`Sounds/click${randomize}.mp3`)
+    let sound = new Audio(`Sounds/click${randomize}.mp4`)
     sound.volume = .5
     sound.pause()
     sound.play()
