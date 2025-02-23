@@ -225,6 +225,7 @@ function update(){
     }
 }
 
+// the time in seconds, mins, etc.
 function timeString(time){
     // minutes
     if (time / 60 >= 1) {
@@ -319,9 +320,14 @@ function galleonClicked(){
     gameStats.totalGalleonsClicked += game.clickRate
     gameStats.totalGalleonsEarned += game.clickRate
     update()
+}
 
-    let sound = new Audio('Sounds/mouseClick.mp4')
-    sound.volume = 0.02
+// noise when the galleon is clicked
+function galleonNoise(){
+    let randomize = Math.floor(Math.random() * 7 + 1)
+    let sound = new Audio(`Sounds/click${randomize}.mp3`)
+    sound.volume = .5
+    sound.pause()
     sound.play()
 }
 
