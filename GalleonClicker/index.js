@@ -347,7 +347,7 @@ function wizards(idName){
 // plays wizard sounds
 function playWizardNoise(wizardName){
     let sound = new Audio(`Sounds/${wizardName}Sound.mp4`)
-    sound.volume = .5
+    sound.volume = 1
     sound.play()
 }
 
@@ -435,7 +435,7 @@ function wizardStatsRemove(){
 
     // startup sound
     let sound = document.getElementById('startupSound')
-    sound.volume = .2
+    sound.volume = .7
 
     setInterval(() => {
         game.galleon += game.galleonPS
