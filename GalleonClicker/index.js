@@ -81,10 +81,10 @@ function resizer(){
 
     StoreWizards.style.height = window.innerHeight - 125 + 'px'
 
-    gameStatsBar.style.height = window.innerHeight - 190 + 'px'
+    gameStatsBar.style.height = window.innerHeight - 179 + 'px'
     gameStatsBar.style.width = window.innerWidth - 1055 +  'px'
 
-    gameDescription.style.height = window.innerHeight - 190 + 'px'
+    gameDescription.style.height = window.innerHeight - 179 + 'px'
     gameDescription.style.width = window.innerWidth - 1055 +  'px'
 
     middleDiv.style.width = window.innerWidth - 945 +  'px'
