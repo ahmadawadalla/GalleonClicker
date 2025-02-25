@@ -5,7 +5,7 @@ To-Do List: https://ahmadawadalla.github.io/PersonalProjects/ToDoList/index.html
 Hang Man: https://ahmadawadalla.github.io/PersonalProjects/HangMan/index.html
 
 ## Detailed Information:
-
+##
 ### 🪙 [**Galleon Clicker**](https://ahmadawadalla.github.io/PersonalProjects/GalleonClicker/index.html) ( *Inspired by Cookie Clicker* )
 
 Galleon Clicker is a Harry Potter clicker game where players earn Galleons by clicking a coin and buying iconic wizards to automate wealth generation. 
@@ -29,7 +29,7 @@ This game features upgrades, wizards, and magical sound effects to make the game
 - JavaScript (DOM manipulation, local storage, event handling)
 - HTML & CSS (UI design, animations, and layout)
 
-
+##
 ### 🧮 [**Cell Calculator**](https://ahmadawadalla.github.io/PersonalProjects/CellCalculator/index.html) - Spreadsheet-Style Calculator
 
 Cell Calculator is a lightweight, dynamic calculator that lets users input mathematical expressions and reference previous calculations using cell IDs. 
