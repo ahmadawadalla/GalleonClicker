@@ -5,7 +5,6 @@ To-Do List: https://ahmadawadalla.github.io/PersonalProjects/ToDoList/index.html
 Hang Man: https://ahmadawadalla.github.io/PersonalProjects/HangMan/index.html
 
 ## Detailed Information:
-##
 ### 🪙 [**Galleon Clicker**](https://ahmadawadalla.github.io/PersonalProjects/GalleonClicker/index.html) ( *Inspired by Cookie Clicker* )
 
 Galleon Clicker is a Harry Potter clicker game where players earn Galleons by clicking a coin and buying iconic wizards to automate wealth generation. 
