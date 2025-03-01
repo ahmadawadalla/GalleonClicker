@@ -88,7 +88,7 @@ function resizer(){
     gameDescription.style.width = window.innerWidth - 1055 +  'px'
 
     middleDiv.style.width = window.innerWidth - 945 +  'px'
-    middleDiv.style.height = window.innerHeight - 12 +  'px'
+    middleDiv.style.height = window.innerHeight - 16 +  'px'
 }
 
 // Saves the game
