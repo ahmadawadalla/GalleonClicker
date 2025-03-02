@@ -81,10 +81,10 @@ function resizer(){
 
     StoreWizards.style.height = window.innerHeight - 125 + 'px'
 
-    gameStatsBar.style.height = window.innerHeight - 179 + 'px'
+    gameStatsBar.style.height = window.innerHeight - 180 + 'px'
     gameStatsBar.style.width = window.innerWidth - 1055 +  'px'
 
-    gameDescription.style.height = window.innerHeight - 179 + 'px'
+    gameDescription.style.height = window.innerHeight - 180 + 'px'
     gameDescription.style.width = window.innerWidth - 1055 +  'px'
 
     middleDiv.style.width = window.innerWidth - 945 +  'px'
@@ -204,6 +204,7 @@ function update(){
     document.getElementById('displayGalleonNumber').innerHTML = `${numberString(game.galleon)} Galleons`
     document.getElementById('galleonPerSecond').innerHTML = `${numberString(game.galleonPS)} PER SECOND`
     updateTime()
+    updateWizards()
 
     let gameStatsBar = document.getElementById('gameStatsBar')
     let timePlayed = document.getElementById('timePlayed')
@@ -304,11 +305,24 @@ function updateWizards(){
     let totalWizards = 0
     for(let key in game){
         if(key.indexOf('Cost') !== -1){
-            document.getElementById(key).innerHTML = `Cost: ${numberString(game[key])}`
+            document.getElementById(key).innerHTML = `${numberString(game[key])}`
+            if(game.galleon > game[key]){
+                let wizard = document.getElementById(key.substring(0,key.indexOf('Cost')))
+                wizard.style.opacity = '100%'
+
+                document.getElementById(key).style.color = 'green'
+            }
+            else{
+                document.getElementById(key).style.color = '#942121'
+            }
         }
         else if(key.indexOf('Level') !== -1){
             document.getElementById(key).innerHTML = `${game[key].toLocaleString()}`
             totalWizards += game[key]
+            if (game[key] >= 1){
+                let wizard = document.getElementById(key.substring(0,key.indexOf('Level')))
+                wizard.style.opacity = '100%'
+            }
         }
     }
     game.totalWizards = totalWizards

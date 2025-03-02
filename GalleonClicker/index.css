@@ -121,6 +121,7 @@ h1{
 #muggle{
     background-color: white;
     border: solid white;
+    opacity: 4%;
     height: 100px;
 }
 #goblin,
@@ -138,6 +139,7 @@ h1{
 {
     background-color: white;
     border: solid white;
+    opacity: 4%;
     height: 100px;
     width: 385px;
     margin-top: 30px;
@@ -179,9 +181,11 @@ h1{
 #harryCost,
 #voldemortCost
 {
+    font-weight: bold;
+    font-size: 17px;
     margin-top: -30px;
-    margin-left: 210px;
-    margin-right: 15px;
+    margin-left: 240px;
+    margin-right: 10px;
 }
 
 /*Hover*/
