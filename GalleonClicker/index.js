@@ -228,6 +228,7 @@ function update(){
 
 // the time in seconds, mins, etc.
 function timeString(time){
+    let single = false
     // minutes
     if (time / 60 >= 1) {
         time /= 60
@@ -240,26 +241,43 @@ function timeString(time){
                 if (time / 365 > 1) {
                     time /= 365
                     time = parseFloat(time.toFixed(1)).toLocaleString()
+                    if (time === 1){
+                        single = true
+                    }
                     time += ' years'
                 }
                 else {
                     time = parseFloat(time.toFixed(1)).toLocaleString()
+                    if (time === 1){
+                        single = true
+                    }
                     time += ' days'
                 }
             } else {
                 time = Math.round(time)
+                if (time === 1){
+                    single = true
+                }
                 time += ' hours'
             }
         } else {
             time = Math.round(time)
+            if (time === 1){
+                single = true
+            }
             time += ' minutes'
         }
     }
     // seconds
     else {
         time = Math.round(time)
+        if (time === 1){
+            single = true
+        }
         time += ' seconds'
     }
+    if (single)
+        time = time.substring(0,time.length - 1)
     return time
 }
 
